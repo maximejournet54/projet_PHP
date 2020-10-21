@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<script type="text/javascript" src="verif_mdp.js"></script>
+<script type="text/javascript" src="verif_mdp.js"></script> <!-- faire le fichier de vérif -->
 <?php
 session_start();
 if (isset($_SESSION['pseudo'])) {
@@ -79,7 +79,7 @@ if (isset($_SESSION['pseudo'])) {
                 <?php unset($_SESSION['pb']); ?>
                 </br>
             </div>
-            <input type="submit" onclick="javascript: return check_mdp_valider();" name="s'inscrire" value="inscription" />
+            <input type="submit" onclick="javascript: return check_mdp_valide();" name="s'inscrire" value="inscription" />
         </form>
     </article>
 </body>
