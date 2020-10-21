@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['pseudo'])) {
     $host = $_SERVER['HTTP_HOST'];
     $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-    $extra = 'page_accueil.php';
+    $extra = './accueil.html';
     header("Location: http://$host$uri/$extra");
 }
 ?>
@@ -25,7 +25,7 @@ if (isset($_SESSION['pseudo'])) {
                 <li><a href="./inscription.php">
                         <div>Inscription</div>
                     </a></li>
-                <li><a href="./page_accueil.php">
+                <li><a href="./accueil.html">
                         <div>Retour à l'accueil</div>
                     </a></li>
             </ul>
