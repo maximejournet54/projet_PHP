@@ -22,12 +22,10 @@ if (isset($_SESSION['pseudo'])) {
     <header>
         <nav>
             <ul>
-                <li><a href="">
-                        <!-- ajouter le lien vers la page correspondante -->
+                <li><a href="./inscription.php">
                         <div>Inscription</div>
                     </a></li>
                 <li><a href="./page_accueil.php">
-                        <!-- ajouter le lien vers la page correspondante -->
                         <div>Retour à l'accueil</div>
                     </a></li>
             </ul>
