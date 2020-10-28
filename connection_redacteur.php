@@ -33,7 +33,7 @@ if (isset($_SESSION['pseudo'])) {
     </header>
     <article>
         <h1>Connexion</h1>
-        <form method="POST" action=""> <br> <!-- ajouter le lien vers la page gérant la connexion du rédacteur -->
+        <form method="POST" action="traitement_connection_redacteur.php"> <br> <!-- ajouter le lien vers la page gérant la connexion du rédacteur -->
             <div>
                 Identifiant :
                 <input type="text" size="20" placeholder="pseudo ou email" name="identifiant" required autocomplete="off" /> <br> <br>
