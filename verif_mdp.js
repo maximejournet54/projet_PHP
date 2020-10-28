@@ -24,4 +24,5 @@ function check_mdp(){
     }
     else return true;
   }
-  
+
+  //peut être changer les variables en fonction de celles utilisées dans les autres fichiers

@@ -4,10 +4,10 @@ $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 try{
 
-  $securemdp = md5("Levis".$_POST['mdp']."Hallowen");//criptage du mot de passe
-  $requete = connection()->prepare('select pseudo, count(*) AS pb from redacteur where (pseudo=:identifiant OR mail=:identifiant) AND motdepasse="' . $securemdp. '"');
+  $securemdp = md5("Levis".$_POST['motdepasse']."Hallowen");//criptage du mot de passe md5 = fonction de cryptage
+  $requete = connection()->prepare('select nom, count(*) AS pb from redacteur where (nom=:identifiant OR adressemail=:identifiant) AND motdepasse="' . $securemdp. '"'); //select nom -> pseudo
   $requete->bindParam(':identifiant',$_POST['identifiant'],PDO::PARAM_STR);
-  $test = $requete->bindParam(':mdp',$securemdp,PDO::PARAM_STR);
+  $test = $requete->bindParam(':motdepasse',$securemdp,PDO::PARAM_STR);
   $requete->execute();
   $result = $requete->fetch();
 
@@ -19,7 +19,7 @@ try{
   else{
     if(isset($_SESSION['extra'])) $extra = $_SESSION['extra'];
     else $extra ='page_acceuil.php';
-    $_SESSION['pseudo']=$result['pseudo'];
+    $_SESSION['nom']=$result['nom'];
     unset($_SESSION['extra']);
   }
 }
