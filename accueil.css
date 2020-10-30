@@ -16,7 +16,7 @@
 }
 
 html{
-    background-color: #222222;
+   background-color: #222222;
 }
 
 li a{
@@ -32,6 +32,10 @@ nav{
     margin-top: 10px;
     width: 100%;
 }
+.texte{
+    color: violet;
+}
+
 
 .titre{
     color: white;
