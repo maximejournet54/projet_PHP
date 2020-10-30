@@ -66,6 +66,8 @@
                             <a href="./accueil.html">
                                 <div>Retour à l'accueil</div>
                             </a>
+                            <div>Retour à l'accueil</div>
+                        </a>
                         </li>
                     </ul>
                 </nav>
