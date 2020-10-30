@@ -1,5 +1,5 @@
 <?php
-include ('connection.php');
+include ('connection_bdd.php');
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 try{
