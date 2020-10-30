@@ -23,7 +23,7 @@ if (isset($_SESSION['pseudo'])) {
                 <li><a href="./connection_redacteur.php">
                         <div>Connexion</div>
                     </a></li>
-                <li><a href="./page_accueil.php">
+                <li><a href="./accueil.html">
                         <div>Retour à l'accueil</div>
                     </a></li>
             </ul>

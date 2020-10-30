@@ -45,7 +45,17 @@
         <title>Ajout d'un article</title>
     </head>
     <body>
-        
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="./accueil.html">
+                         <div>Retour à l'accueil</div>
+                    </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
         <center>
             <h1>Ajout d'un article</h1>
             <form method="POST" name="ajoutArticle">
