@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['BDD_ERROR'])) { // regarde si la personne qui accède à la page est déjà connecté, si elle l'est, elle se fait rediriger à la page d'accueil
   $host  = $_SERVER['HTTP_HOST'];
   $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-  $extra = 'accueil.html'; //nom de la page d'accueil à ajouter pour la redirection
+  $extra = 'accueil.php'; //nom de la page d'accueil à ajouter pour la redirection
   header("Location: http://$host$uri/$extra");
 }
 ?>
@@ -19,7 +19,7 @@ if (!isset($_SESSION['BDD_ERROR'])) { // regarde si la personne qui accède à l
   <header>
     <nav>
       <ul>
-        <li><a href="./page_acceuil.php">
+        <li><a href="./accueil.php">
             <div>retour à l'acceuil</div>
           </a></li>
       </ul>

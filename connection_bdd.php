@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
 /*
   function connection(){
     try {
@@ -18,7 +19,7 @@
   }
 */
 
-//comme dans les td et ça marche
+
 $db_config=array();
 $db_config['SGBD']='mysql';
 $db_config['HOST']='devbdd.iutmetz.univ-lorraine.fr';
@@ -32,10 +33,10 @@ $db_config['PASSWORD']='23JAN2001';
     try{$objPdo = new PDO
         ($db_config['SGBD'].':host='.$db_config['HOST'].';dbname='.$db_config['DB_NAME'],
         $db_config['USER'], $db_config['PASSWORD']);
-        //echo("ça marche!");
         unset($db_config);
     }catch(Exception $exception){
         die($exception->getMessage());
     }
+    
 
 ?>

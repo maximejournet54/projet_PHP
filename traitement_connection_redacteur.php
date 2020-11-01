@@ -18,14 +18,14 @@ try{
   }
   else{
     if(isset($_SESSION['extra'])) $extra = $_SESSION['extra'];
-    else $extra ='page_acceuil.php';
+    else $extra ='page_accueil.php';
     $_SESSION['nom']=$result['nom'];
     unset($_SESSION['extra']);
   }
 }
 
 catch(Exception $e){
-  $extra = 'error_dbb.php';
+  $extra = 'erreur_bdd.php';
 }
 
 header("Location: http://$host$uri/$extra");
