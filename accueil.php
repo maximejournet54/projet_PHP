@@ -38,8 +38,8 @@
         <!--affichage des articles et de leur titre -->
         <?php
             foreach($result as $row){
-                echo utf8_encode("<h1 class='titre'>".$row['titrenews']."</h1><br>" );
-                echo utf8_encode("<p class='article'>".$row['textenews']."</p>");
+                echo ("<h1 class='titre'>".$row['titrenews']."</h1><br>" );
+                echo ("<p class='article'>".$row['textenews']."</p>");
             }
         ?>
 
