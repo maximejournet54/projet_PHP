@@ -15,7 +15,7 @@ if (isset($_SESSION['pseudo'])) {
 
 <head>
     <title>Connection au site</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="accueil.css">
 </head>
 
 <body>

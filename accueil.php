@@ -47,7 +47,7 @@
 
     <footer>
         <a href="#hautdepage" style="margin-left: 20px;"> retourner en haut de la page </a> 
-        <a href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a>
+        <a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a>
         <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>           
     </footer>
 </html>
