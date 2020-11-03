@@ -1,0 +1,6 @@
+confirmation click déconnexion dans menu
+afficher les coordonnées du rédacteur sur le site
+gestion du tri des articles
+Inscription:
+vérifier si le mail a déjà été utilisé et le cas échéant refuser la création en prévenant l’internaute avec un message !
+vérification si l'email rentré est bien une adresse email

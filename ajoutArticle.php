@@ -29,51 +29,56 @@
         }
 
         if (count($erreur)==0) {
-            include "connection_bdd.php";
             //requetes
-            $req="INSERT INTO news(idnews,idtheme,titrenews,datenews,textenews,idredacteur) VALUES (:idnews,:idtheme,:titrenews,:datenews,:textenews,:idredacteur)";
-            $insert=$objPdo->prepare($req);
-            $req2="SELECT COUNT(idredacteur) FROM redacteur,news WHERE redacteur.idredacteur=news.idredacteur";
-            $insert2=$objPdo->prepare($req2);
-
-            //creation d'un article
+            $idredacteur=$_SESSION['idredacteur'];
+            date_default_timezone_set('Europe/Paris');
             $date=date("d/m/Y h:i:s");//generation de la date du jour au format JJ/MM/AAAA h/m/s
-            $idredacteur=rand(1,intval($insert2));
+            //$idredacteur=rand(1,intval($insert2));
             $string=$_POST['theme'];
 
-            $insert->execute(array(':idnews'=>NULL,':idtheme'=>intval($string[0]).intval($string[1]),':titrenews'=>$_POST['titre'], ':datenews'=>$date,
-            ':textenews'=>$_POST['texte'],':idredacteur'=>$idredacteur));
-
+            //creation d'un article
+            $req="INSERT INTO news(idnews,idtheme,titrenews,datenews,textenews,idredacteur) VALUES (:idnews,:idtheme,:titrenews,:datenews,:textenews,:idredacteur)";
+            $insert=$objPdo->prepare($req);
+            $insert->bindValue('idnews',NULL,PDO::PARAM_INT);
+            $insert->bindValue('idtheme',intval($string[0]).intval($string[1]),PDO::PARAM_INT);
+            $insert->bindValue('titrenews',$_POST['titre'],PDO::PARAM_STR);
+            $insert->bindValue('datenews',$date,PDO::PARAM_STR);
+            $insert->bindValue('textenews',$_POST['texte'],PDO::PARAM_STR);
+            $insert->bindValue('idredacteur',$idredacteur,PDO::PARAM_INT);
+            $insert->execute();
         }     
          
+    }
+
+    if (isset($_POST['annuler'])) {
+        header("location: accueil_redacteur.php");
     }
 ?>
 
 <html style="background-color: #222222;">
     <html lang="fr">
     <head>
-        <meta charset="UTF-8">
         <title>Ajout d'un article</title>
+        <meta charset="UTF-8" >
+        <link rel="stylesheet" href="accueil.css">
     </head>
-    <body>
-        <center> <!-- balises center a enlever et utiliser css-->
+
+    <body id="hautdepage" class="texte">
+        
             <header>
                 <nav>
-                    <ul>
-                        <li>
-                            <a href="./accueil.php">
-                                <div>Retour à l'accueil</div>
-                            </a>
-                        </li>
+                    <ul id="navigation">
+                        <li><a href="Accueil.php" title="Retour à l'accueil">Accueil</a></li>
+                        <li><a href="traitement_deconnexion.php" title="Se déconnecter">Déconnection</a></li>
                     </ul>
                 </nav>
             </header>
         
-            <h1 style="color: white;font-size: 35">Ajout d'un article</h1>
+            <h1 class="titre">Ajout d'un article</h1>
             <form method="POST" name="ajoutArticle" style="color: violet; font-size: 30">
                 <label for="theme">theme :</label>
-                <input type="text" list=theme name="theme" placeholder="choisir un thème" >
-                <datalist id=theme>
+                <input list=theme1 name="theme" placeholder="choisir un thème" >
+                <datalist id=theme1>
                     <?php
                         foreach ($result as $value) {
                             echo "<option>".$value['idtheme']." ".$value['description'];
@@ -84,20 +89,29 @@
                 <span class="erreur"><?php echo $erreur['theme'];?></span> 
                 <br>
                 <br>
-                <label for="titre">titre : </label><input type="text" name="titre" placeholder="insérer le titre" value="<?php echo $value['titre']?>">
+                <label for="titre">titre : </label><input type="text" name="titre" placeholder="saisir le titre" value="<?php echo $value['titre']?>">
                 <br>
                 <span class="erreur"><?php echo $erreur['titre'];?></span> 
                 <br>
                 <label for="texte">texte : </label> 
-                <textarea id="text" name="texte" placeholder="insérer le texte" value="<?php echo $value['texte']?>"></textarea>
+                <textarea id="text" name="texte" placeholder="saisir le texte" value="<?php echo $value['texte']?>"></textarea>
                 <br>
                 <span class="erreur"><?php echo $erreur['texte']?></span> 
-                <br>       
-                <input type="submit" name="valider" value="valider" style="font-size: 25; color:violet;">
+                <br>  
+                <input type="submit" name="annuler" value="Annuler" style="font-size: 25; color:violet;" action="Accueil.php">
+                <br>   
+                <br>  
+                <input type="submit" name="valider" value="Valider" style="font-size: 25; color:violet;">
             </form>
-        </center>
+        
 
     </body>
+
+    <footer>
+        <a href="#hautdepage" style="margin-left: 20px;"> retourner en haut de la page </a> 
+        <a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a>
+        <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>           
+    </footer>
 </html>
 
             

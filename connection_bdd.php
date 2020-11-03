@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE);
 /*
   function connection(){
     try {
@@ -17,9 +16,8 @@ error_reporting(E_ALL & ~E_NOTICE);
       exit();
     }
   }
+
 */
-
-
 $db_config=array();
 $db_config['SGBD']='mysql';
 $db_config['HOST']='devbdd.iutmetz.univ-lorraine.fr';
@@ -41,6 +39,5 @@ $db_config['PASSWORD']='23JAN2001';
     }catch(Exception $exception){
         die($exception->getMessage());
     }
-    
 
 ?>

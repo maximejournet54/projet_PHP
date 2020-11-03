@@ -2,6 +2,7 @@
 include ('connection_bdd.php');
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+/*
 try{
 
   $securemdp = md5("Levis".$_POST['motdepasse']."Hallowen");//criptage du mot de passe md5 = fonction de cryptage
@@ -27,6 +28,7 @@ try{
 catch(Exception $e){
   $extra = 'erreur_bdd.php';
 }
+*/
 
 header("Location: http://$host$uri/$extra");
 exit();

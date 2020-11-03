@@ -6,7 +6,7 @@
 
 <html>
     <head>
-        <title>page d'accueil</title>
+        <title> Accueil rédacteur</title>
         <meta charset="UTF-8" >
         <link rel="stylesheet" href="accueil.css">
     </head>
@@ -14,11 +14,13 @@
     <header>
             <nav>
                 <ul id="navigation">
-                    <li><a href="inscription.php" title="Créer un compte">S'inscrire</a></li>
-                    <li><a href="connection_redacteur.php" title="Se connecter">Connection</a></li>
+                    <li><a href="ajoutArticle.php" title="Ecrire un nouvel article">Ajouter un article</a></li>
+                    <li><a href="traitement_deconnexion.php" title="Se déconnecter">Déconnection</a></li>
                 </ul>
             </nav>
     </header>
+
+    <body>
 
     <body id="hautdepage">  
         <h1 class="titre">Bienvenue sur notre site d'actualité!</h1> 
@@ -36,7 +38,7 @@
 
         <!--affichage des articles et de leur titre -->
         <?php
-            foreach($result as $row){
+             foreach($result as $row){
                 echo ("<h1 class='titre'>".$row['titrenews']."</h1><br>");
                 echo ("<p class='article'>".$row['textenews']."<br><br>Date: ".$row['datenews']."</p><br>");
             }
