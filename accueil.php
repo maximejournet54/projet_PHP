@@ -61,10 +61,8 @@
                     echo ("<h1 class='titre'>".$row2['titrenews']."</h1><br>");
                     echo ("<p class='article'>".$row2['textenews']."<br><br>". "Thème: ".$row2['description']."<br> Date: ".$row2['datenews']."<br>"."Auteur: ".$row2['prenom']." ".$row2['nom']."</p>");
                 }
-            }
-            
+            }   
         ?>
-
     </body>
 
     <footer>

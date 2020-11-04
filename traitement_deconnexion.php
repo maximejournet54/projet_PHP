@@ -1,15 +1,14 @@
 <?php
-if (isset($_POST['deconnexion'])) {
-    session_start();
-    $_SESSION[] = array();
-    session_destroy();
-    header("location: accueil.php");
-}
-if (isset($_POST['retour']))
-{
-    header("location: accueil_redacteur.php");
-}
-
+    if (isset($_POST['deconnexion'])) {
+        session_start();
+        $_SESSION[] = array();
+        session_destroy();
+        header("location: accueil.php");
+    }
+    if (isset($_POST['retour']))
+    {
+        header("location: accueil_redacteur.php");
+    }
 ?>
 
 <html>

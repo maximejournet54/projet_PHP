@@ -1,5 +1,4 @@
 <!-- page de connection d'un rédacteur au site pour pouvoir créer et intéragir avec les fonctionnalitées du site -->
-
 <?php
     session_start();
     include "connection_bdd.php";
@@ -13,7 +12,6 @@
         if (!isset($_POST['motdepasse'])) {
             $erreur['motdepasse']='selection obligatoire du mot de passe';
         }
-
         if(isset($_POST['identifiant'])&& isset($_POST['motdepasse'])){
             $bSoumis=1;
             $result=$objPdo->query('select * from redacteur');
@@ -24,7 +22,6 @@
                     if ($_SESSION['url'] != '')
                         header("location: {$_SESSION['url']}");
                     else header("location: accueil_redacteur.php");
-    
                     //pour pouvoir récupérer l'id dans un autre script
                     $_SESSION['idredacteur']=$row['idredacteur'];
                     $_SESSION['nom']=$row['nom'];
@@ -35,9 +32,7 @@
         else
             $bSoumis=0;
     }
-?>
-    
-    
+?>    
 
 <html>
     <head>
@@ -57,7 +52,6 @@
 
     <body id="hautdepage" class="texte">
         <h1 class="titre">Connexion</h1>
-
         <form method="POST" >  <!-- ajouter le lien vers la page gérant la connexion du rédacteur -->
             <label for="Identifiant">Identifiant : </label>
             <input type="text" size="20" placeholder="Insérer l'adresse email" name="identifiant" required > <br> <br>
