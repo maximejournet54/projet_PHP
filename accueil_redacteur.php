@@ -28,20 +28,43 @@
             <p>Vous trouverez sur ce site des articles traitant de différentes actualités. <br> 
             Il est possible de se créer un compte pour écrire un nouvel article. <br>
             Voici ci-dessous quelques articles </p>
-            <p> <label for="tri">les articles par: </label></p>
-            <input list=tri1 id="tri" name="tri" >
-            <datalist id=tri1>
-                <option value="Date"> 
-                <option value="Thème"> 
-            </datalist>
+            <form method="POST" action="accueil.php">
+                <p><label for="tri">Trier les articles par: </label></p>
+                <select name="tri">
+                    <?php
+                        if (isset($_POST['tri'])&&$_POST['tri']==1) {
+                            echo "<option value='1'> Thème
+                            <option value='0'>Date";
+                        }
+                        else {
+                            echo "<option value='0'> Date
+                            <option value='1'> Thème";
+                        }
+                    ?>
+                </select>
+                <input type="submit" value="valider">
+            </form>
         </div>
 
-        <!--affichage des articles et de leur titre -->
-        <?php
-             foreach($result as $row){
-                echo ("<h1 class='titre'>".$row['titrenews']."</h1><br>");
-                echo ("<p class='article'>".$row['textenews']."<br><br>Date: ".$row['datenews']."</p><br>");
+         <!--affichage des articles et de leur titre -->
+         <?php
+            if (isset($_POST['tri'])&&$_POST['tri']==1) {
+                $req1="SELECT * FROM news,theme,redacteur WHERE news.idtheme=theme.idtheme and redacteur.idredacteur=news.idredacteur ORDER BY news.idtheme";
+                $result=$objPdo->query($req1);
+                foreach($result as $row){
+                    echo ("<h1 class='titre'>".$row['titrenews']."</h1><br>");
+                    echo ("<p class='article'>".$row['textenews']."<br><br>". "Thème: ".$row['description']."<br> Date: ".$row['datenews']."<br>"."Auteur: ".$row2['prenom']." ".$row2['nom']."</p>");
+                }
             }
+            elseif (!isset($_POST['tri'])||$_POST['tri']==0) {
+                $req2="SELECT  * FROM news,theme,redacteur WHERE news.idtheme=theme.idtheme and redacteur.idredacteur=news.idredacteur ORDER BY news.datenews";
+                $result2=$objPdo->query($req2);
+                foreach($result2 as $row2){
+                    echo ("<h1 class='titre'>".$row2['titrenews']."</h1><br>");
+                    echo ("<p class='article'>".$row2['textenews']."<br><br>". "Thème: ".$row2['description']."<br> Date: ".$row2['datenews']."<br>"."Auteur: ".$row2['prenom']." ".$row2['nom']."</p>");
+                }
+            }
+            
         ?>
 
     </body>

@@ -3,30 +3,41 @@
 <?php
     session_start();
     include "connection_bdd.php";
+    error_reporting(E_ALL & ~E_NOTICE);
 
-    if(isset($_POST['identifiant'])&& isset($_POST['motdepasse'])){
-        $bSoumis=1;
-    //  $req=$objPdo->prepare('select adressemail,motdepasse from redacteur where adressemail = :mail and motdepasse = :password');
-        $result=$objPdo->query('select * from redacteur');
-        foreach ($result as $row) {
-            if ($_POST['identifiant'] ==  $row['adressemail']&& $_POST['motdepasse'] == $row['motdepasse'])
-            {
-                $_SESSION['login'] = 'ok';
-                if ($_SESSION['url'] != '')
-                    header("location: {$_SESSION['url']}");
-                else header("location: accueil_redacteur.php");
+    if(isset($_POST['valider'])){
+        $erreur=[];
+        if (!isset($_POST['identifiant'])) {
+            $erreur['identifiant']='selection obligatoire de l\'identifiant';
+        }
+        if (!isset($_POST['motdepasse'])) {
+            $erreur['motdepasse']='selection obligatoire du mot de passe';
+        }
 
-                //pour pouvoir récupérer l'id dans un autre script
-                $_SESSION['idredacteur']=$row['idredacteur'];
-                $_SESSION['nom']=$row['nom'];
-                $_SESSION['prenom']=$row['prenom'];
-
+        if(isset($_POST['identifiant'])&& isset($_POST['motdepasse'])){
+            $bSoumis=1;
+            $result=$objPdo->query('select * from redacteur');
+            foreach ($result as $row) {
+                if ($_POST['identifiant'] ==  $row['adressemail']&& $_POST['motdepasse'] == $row['motdepasse'])
+                {
+                    $_SESSION['login'] = 'ok';
+                    if ($_SESSION['url'] != '')
+                        header("location: {$_SESSION['url']}");
+                    else header("location: accueil_redacteur.php");
+    
+                    //pour pouvoir récupérer l'id dans un autre script
+                    $_SESSION['idredacteur']=$row['idredacteur'];
+                    $_SESSION['nom']=$row['nom'];
+                    $_SESSION['prenom']=$row['prenom'];
+                }
             }
         }
+        else
+            $bSoumis=0;
     }
-    else
-        $bSoumis=0;
 ?>
+    
+    
 
 <html>
     <head>
@@ -45,28 +56,20 @@
     </header>
 
     <body id="hautdepage" class="texte">
-        
-            <article>
-                <h1 class="titre">Connexion</h1>
-                <form method="POST" > <br> <!-- ajouter le lien vers la page gérant la connexion du rédacteur -->
-                    <div>
-                        Identifiant :
-                        <input type="text" size="20" placeholder="Insérer l'adresse email" name="identifiant" required autocomplete="off" /> <br> <br>
+        <h1 class="titre">Connexion</h1>
 
-                        Mot de passe :
-                        <input type="password" size="20" placeholder="Insérer le mot de passe" name="motdepasse" required />
-                        <?php
-                            if (isset($_SESSION['pb'])){
-                                echo "cet identifiant n'existe pas ou le mot de passe est erroné";
-                                unset($_SESSION["pb"]);
-                            } 
-                        ?>
-                    </div>
-                    <br>
-                    <input type="submit" name="valider" value="Se connecter">
-                </form>
-            </article>
-        
+        <form method="POST" >  <!-- ajouter le lien vers la page gérant la connexion du rédacteur -->
+            <label for="Identifiant">Identifiant : </label>
+            <input type="text" size="20" placeholder="Insérer l'adresse email" name="identifiant" required > <br> <br>
+            <br>
+            <span class="erreur"><?php echo $erreur['identifiant'];?></span> 
+            <label for="motdepasse">Mot de passe : </label>  
+            <input type="password" size="20" placeholder="Insérer le mot de passe" name="motdepasse" required >
+            <br>
+            <span class="erreur"><?php echo $erreur['motdepasse'];?></span> 
+            <br>
+            <input type="submit" name="valider" value="Se connecter">
+        </form>     
     </body>
 
     <footer>
