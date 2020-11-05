@@ -16,6 +16,7 @@
                 <ul id="navigation">
                     <li><a href="inscription.php" title="Créer un compte">S'inscrire</a></li>
                     <li><a href="connection_redacteur.php" title="Se connecter">Connection</a></li>
+                    <li><a href="#basdepage">Aller au bas de la page</a></li>
                 </ul>
             </nav>
     </header>
@@ -65,7 +66,7 @@
         ?>
     </body>
 
-    <footer>
+    <footer id="basdepage">
         <nav>
             <ul id="navigation">
                     <li><a href="#hautdepage"> retourner en haut de la page </a> </li>
