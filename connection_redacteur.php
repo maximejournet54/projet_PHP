@@ -54,11 +54,11 @@
         <h1 class="titre">Connexion</h1>
         <form method="POST" >  <!-- ajouter le lien vers la page gérant la connexion du rédacteur -->
             <label for="Identifiant">Identifiant : </label>
-            <input type="text" size="20" placeholder="Insérer l'adresse email" name="identifiant" required > <br> <br>
+            <input class="champ" type="text" size="20" placeholder="Insérer l'adresse email" name="identifiant" required > <br> <br>
             <br>
             <span class="erreur"><?php echo $erreur['identifiant'];?></span> 
             <label for="motdepasse">Mot de passe : </label>  
-            <input type="password" size="20" placeholder="Insérer le mot de passe" name="motdepasse" required >
+            <input class="champ" type="password" size="20" placeholder="Insérer le mot de passe" name="motdepasse" required >
             <br>
             <span class="erreur"><?php echo $erreur['motdepasse'];?></span> 
             <br>
@@ -67,8 +67,12 @@
     </body>
 
     <footer>
-        <a href="#hautdepage" style="margin-left: 20px;"> retourner en haut de la page </a> 
-        <a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a>
-        <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>           
+        <nav>
+            <ul id="navigation">
+                    <li><a href="#hautdepage"> retourner en haut de la page </a> </li>
+                    <li><a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a></li>
+                    <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>        
+            </ul>
+        </nav>
     </footer>
 </html>

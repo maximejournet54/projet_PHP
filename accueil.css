@@ -45,6 +45,10 @@ footer{
     font-size: 20;
 }
 
+.champ {
+    width:500px
+}
+
 .texte{
     color:#c30fc3;
     text-align: center;

@@ -63,15 +63,18 @@
                     echo ("<h1 class='titre'>".$row2['titrenews']."</h1><br>");
                     echo ("<p class='article'>".$row2['textenews']."<br><br>". "Thème: ".$row2['description']."<br> Date: ".$row2['datenews']."<br>"."Auteur: ".$row2['prenom']." ".$row2['nom']."</p>");
                 }
-            }
-            
+            }   
         ?>
 
     </body>
 
     <footer>
-        <a href="#hautdepage" style="margin-left: 20px;"> retourner en haut de la page </a> 
-        <a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a>
-        <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>           
+        <nav>
+            <ul id="navigation">
+                    <li><a href="#hautdepage"> retourner en haut de la page </a> </li>
+                    <li><a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a></li>
+                    <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>        
+            </ul>
+        </nav>
     </footer>
 </html>

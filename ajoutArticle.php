@@ -47,8 +47,7 @@
             $insert->bindValue('textenews',$_POST['texte'],PDO::PARAM_STR);
             $insert->bindValue('idredacteur',$idredacteur,PDO::PARAM_INT);
             $insert->execute();
-        }     
-         
+        }        
     }
 
     if (isset($_POST['annuler'])) {
@@ -77,6 +76,7 @@
         <h1 class="titre">Ajout d'un article</h1>
         <form method="POST" name="ajoutArticle">
             <label for="theme">theme :</label>
+            <br>
             <select name="theme"> 
                 <?php
                     foreach ($result as $value) {
@@ -87,12 +87,15 @@
             <br>
             <span class="erreur"><?php echo $erreur['theme'];?></span> 
             <br>
-            <label for="titre">titre : </label><input type="text" name="titre" placeholder="saisir le titre" value="<?php echo $value['titre']?>">
+            <label for="titre">titre : </label>
+            <br>
+            <input class="champ" type="text" name="titre" placeholder="saisir le titre" value="<?php echo $value['titre']?>">
             <br>
             <span class="erreur"><?php echo $erreur['titre'];?></span> 
             <br>
             <label for="texte">texte : </label> 
-            <textarea id="text" name="texte" placeholder="saisir le texte" value="<?php echo $value['texte']?>"></textarea>
+            <br>
+            <textarea id="text" cols="100" rows="15" name="texte" placeholder="saisir le texte" value="<?php echo $value['texte']?>"></textarea>
             <br>
             <span class="erreur"><?php echo $erreur['texte']?></span> 
             <br>  
@@ -104,9 +107,13 @@
     </body>
 
     <footer>
-        <a href="#hautdepage"> retourner en haut de la page </a> 
-        <a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a>
-        <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>           
+        <nav>
+            <ul id="navigation">
+                    <li><a href="#hautdepage"> retourner en haut de la page </a> </li>
+                    <li><a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a></li>
+                    <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>        
+            </ul>
+        </nav>
     </footer>
 </html>
 

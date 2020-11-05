@@ -51,7 +51,7 @@
                 $result=$objPdo->query($req1);
                 foreach($result as $row){
                     echo ("<h1 class='titre'>".$row['titrenews']."</h1><br>");
-                    echo ("<p class='article'>".$row['textenews']."<br><br>". "Thème: ".$row['description']."<br> Date: ".$row['datenews']."<br>"."Auteur: ".$row2['prenom']." ".$row2['nom']."</p>");
+                    echo ("<p class='article'>".$row['textenews']."<br><br>". "Thème: ".$row['description']."<br> Date: ".$row['datenews']."<br>"."Auteur: ".$row['prenom']." ".$row['nom']."</p>");
                 }
             }
             elseif (!isset($_POST['tri'])||$_POST['tri']==0) {
@@ -66,8 +66,12 @@
     </body>
 
     <footer>
-        <a href="#hautdepage" style="margin-left: 20px;"> retourner en haut de la page </a> 
-        <a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a>
-        <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>           
+        <nav>
+            <ul id="navigation">
+                    <li><a href="#hautdepage"> retourner en haut de la page </a> </li>
+                    <li><a target="_blank" href="https://github.com/maximejournet54/projet_PHP">Lien du code du projet</a></li>
+                    <p>Ce site a été développé par Lucas LEVIS et Maxime Journet dans le cadre du projet PHP de 2e année de DUT informatique.</p>        
+            </ul>
+        </nav>
     </footer>
 </html>
