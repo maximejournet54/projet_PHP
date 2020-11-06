@@ -16,6 +16,7 @@
                 <ul id="navigation">
                     <li><a href="ajoutArticle.php" title="Ecrire un nouvel article">Ajouter un article</a></li>
                     <li><a href="traitement_deconnexion.php" title="Se déconnecter">Déconnection</a></li>
+                    <li><a href="suppression_compte.php" title="Supprimer le compte">Supprimer le compte</a></li>
                     <li><a href="#basdepage">Aller au bas de la page</a></li>
                 </ul>
             </nav>
